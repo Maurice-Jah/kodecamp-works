@@ -1,29 +1,19 @@
 
-
-
-
-
-
 <?php
+
+session_start();
 
 if(isset($_POST['submit'])){
    $img_name = $_FILES['img_upload'] ['name'];
    $img_tmp = $_FILES['img_upload'] ['tmp_name'];
    $folder = 'uploads/';
 
-   move_uploaded_file($img_tmp, $folder.$img_name);
-
+  $upload= move_uploaded_file($img_tmp, $folder.$img_name);
    header('Location:dashboard.php');
 
 }
 
 ?>
-
-
-
-
-
-
 
 
 
@@ -41,8 +31,7 @@ if(isset($_POST['submit'])){
     <form action="" method="POST" enctype="multipart/form-data" class="w-50 mx-auto" style="padding: 50px;">
     <h2 class="mb-3">Select Image to Upload</h2>
     <input type="file" name="img_upload" class="mb-3"> <br>
-    <input type="submit btn btn-primary" value="Upload" name="submit">
-
+    <input type="submit" class="btn btn-primary" value="Upload" name="submit">
     </form>
     
 </body>

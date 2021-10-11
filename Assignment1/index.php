@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $email = $_POST['email'];
 
     // set Session
-    $_SESSION['name'] = $email;
+    $_SESSION['name'] = $username;
 
 
 

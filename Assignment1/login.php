@@ -2,17 +2,14 @@
 <?php
 session_start();
 
-$username = " ";
+ $username = " ";
  $password = " ";
 
 
 
  $jsonData = file_get_contents("users.json");
-$json = json_decode($jsonData,true);
+ $json = json_decode($jsonData,true);
 
-
-
- 
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $username = $_POST['username'];
@@ -28,14 +25,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         foreach ($json['users'] as $user){
             $jsonUsername= $user['username'] ;
             $jsonPass = $user['password'] ;
-    
-            if($jsonUsername === $_POST['username'] &&  $jsonPass === $_POST['password'] ){
-                echo "Welcome";
-                 header('Location:upload.php');
-            } else{
-                echo "unmatched records";
-            }
+
+            if($jsonUsername === $username &&  $jsonPass === $password){
+                header('Location:upload.php');
+           } 
         }
+
+       
 
        
     }else{
